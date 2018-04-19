@@ -41,9 +41,9 @@
 						aria-expanded="false">접속하기<span class="caret"></span></a> 
 						<!-- #은 현재가르키고있는 링크가 없다. caret 은 하나의 아이콘 같은 것이다.  -->
 					<ul class="dropdown-menu">
-						<li class="active"><a href="login.jsp">로그인</a></li>
+						<li><a href="login.jsp">로그인</a></li>
 						<!-- active 는 현재 선택된 현재의 페이지를 의미. 단 한개의 페이지에만 들어갈수잇음.  -->
-						<li><a href="join.jsp">회원가입</a></li>
+						<li class="active"><a href="join.jsp">회원가입</a></li>
 					</ul>
 				</li>
 			</ul>
@@ -53,15 +53,32 @@
 		<div class="col-lg-4"></div>
 		<div class="col-lg-4"> <!-- 중간에 로그인 양식이 들어가는 것 -->
 			<div class="jumbotron" style="padding-top: 20px;">
-				<form method="post" action="loginAction.jsp"> <!-- form은 하나의 양식이 들어가는 것. post는 정보를 숨기고 보낼때 쓰는 하나의 메소드 -->
-					<h3 style="text-align: center;">로그인 화면</h3> <!-- 가운데 정렬 -->
+				<form method="post" action="joinAction.jsp"> <!-- form은 하나의 양식이 들어가는 것. post는 정보를 숨기고 보낼때 쓰는 하나의 메소드, 정보를 joinAction 페이지로 보냄. -->
+					<h3 style="text-align: center;">회원가입 화면</h3> <!-- 가운데 정렬 -->
 					<div class="form-group">
 						<input type="text" class="form-control" placeholder="아이디" name="userID" maxlength="20">
 					</div> <!-- 어떤 정보를 넣을 수 있는 input. holder는 아무것도 입력이 되지 않았을때 나타나는 것. name는 서버프로그램 작성할때 사용되는 중요한 정보(매개변수). -->
 					<div class="form-group">
 						<input type="password" class="form-control" placeholder="비밀번호" name="userPassword" maxlength="20">
 					</div>
-					<input type="submit" class="btn btn-primary form-control" value="로그인"> <!-- 로그인 버튼 생성 -->
+					<div class="form-group">
+						<input type="text" class="form-control" placeholder="이름" name="userName" maxlength="20">
+					</div>
+					<!-- 아래부분부터는 남자인지 여자인지 성별 선택하도록. 버튼그룹이 들어감. -->
+					<div class="form-group" style="text-align: center;">
+						<div class="btn-group" data-toggle="buttons">
+							<label class="btn btn-primary active"> <!-- active는 기본적으로 선택이 된것. 처음에는 남자부분이 선택되어있게. -->
+								<input type="radio" name="userGender" autocomplete="off" value="남자" checked>남자
+							</label>
+							<label class="btn btn-primary">
+								<input type="radio" name="userGender" autocomplete="off" value="여자" checked>여자
+							</label>
+						</div>
+					</div>
+					<div class="form-group">
+						<input type="email" class="form-control" placeholder="이메일" name="userEmail" maxlength="20">
+					 </div>
+					<input type="submit" class="btn btn-primary form-control" value="회원가입"> <!-- 로그인 버튼 생성 -->
 				</form>
 			</div>
 		</div>
